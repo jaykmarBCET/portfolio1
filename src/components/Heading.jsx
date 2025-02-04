@@ -91,6 +91,16 @@ const List = ({toggle,  setToggle}) => {
           Skills
         </NavLink>
       </li>
+      <li className="navItem">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? " animated bg-black py-2 px-4 text-white font-bold shadow-lg rounded-lg mx-1 hover:bg-black ":"animated py-2 px-4 text-white font-bold shadow-lg rounded-lg mx-1 hover:bg-black "
+          }
+          to="/dashboard"
+        >
+          Dashboard
+        </NavLink>
+      </li>
     </ul>
   );
 };
