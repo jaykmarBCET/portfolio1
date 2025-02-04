@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.menu {
+    &:hover {
+        transition: all 0.4s ease-in-out 0.3s;
+        transform: rotate(180deg);
+        /* transform: scale(1.2); */
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        background: #000;
+        text-align: center;
+        
+        color: white;
+
+    }
+}
+
+.name {
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+
+    border-radius: 50%;
+    align-items: center;
+    color: white;
+    transition: all 0.3s ease-in-out 0.2s;
+
+    
+}
+
+@keyframes name {
+    20% {
+        border-top: 5px solid blue;
+    }
+
+    40% {
+        border-bottom: 5px solid blue;
+    }
+}
+
+
+
+
+@keyframes some {
+    10%{
+        background:linear-gradient(rgb(102, 102, 180),rgb(149, 149, 102),rgb(153, 148, 102),rgb(161, 152, 95),silver,rgb(135, 94, 94));
+    }
+    20%{
+        background:linear-gradient(rgb(160, 160, 105),rgb(169, 164, 119),rgb(158, 150, 102),silver,rgb(144, 113, 113),rgb(101, 101, 156));
+    }
+    30%{
+        background:linear-gradient(rgb(127, 123, 90),rgb(168, 158, 102),silver,rgb(163, 110, 110),rgb(107, 107, 176),rgb(141, 141, 99));
+
+    }
+    40%{
+        background:linear-gradient(rgb(152, 141, 82),silver,rgb(156, 109, 109),rgb(111, 111, 174),rgb(130, 130, 87),rgb(150, 144, 94));
+    }
+}
+
+
+
+@media only screen and (max-width: 750px) and (min-width:320px) {
+    .pipe {
+        display: none;
+    }
+
+    
+    ::-webkit-scrollbar {
+        width: 2px;
+        background: #000;
+       
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        /* Make the scrollbar track transparent */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(209, 34, 34, 0.3);
+        /* Semi-transparent thumb */
+        border-radius: 10px;
+        /* Rounded corners for the scrollbar thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(243, 42, 42, 0.5);
+        /* Darker when hovered */
+    }
+
+    /* For Firefox */
+    * {
+        scrollbar-width: thin;
+        /* Thin scrollbar */
+        scrollbar-color: rgba(255, 2, 2, 0.3) transparent;
+        /* Transparent track with semi-transparent thumb */
+    }
+
+}
