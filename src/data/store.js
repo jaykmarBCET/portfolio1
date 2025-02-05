@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Set up the axios instance with the base URL
 const instanceAxios = axios.create({
-  baseURL: "https://9c2nf9-3000.csb.app/api/grab"
+  baseURL: "https://fr33hg-3000.csb.app/api/grab"
 });
 
 const useStore = create((set) => ({

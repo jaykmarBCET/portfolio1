@@ -3,7 +3,7 @@ import axios from 'axios';
 import {toast} from 'react-hot-toast'
 
 const instanceAxios = axios.create({
-    baseURL: "https://9c2nf9-3000.csb.app/api",
+    baseURL: "https://fr33hg-3000.csb.app/api",
     withCredentials: true
 });
 
