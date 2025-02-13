@@ -27,6 +27,10 @@ const useAuthStore = create((set, get) => ({
         { withCredentials: true }  // Enable cookies for session handling
       );
       console.log(response);
+      
+      // Set cookie with token from response
+      document.cookie = `token=${response.data.data.token}; path=/; expires=${new Date(new Date().getTime() + 3600 * 1000).toUTCString()}; Secure; SameSite=Strict`;
+
       set({ user: response.data.data, error: null });  // Clear error if successful
     } catch (error) {
       console.error("Error logging in:", error);
@@ -38,6 +42,10 @@ const useAuthStore = create((set, get) => ({
   logoutAccount: async () => {
     try {
       await axios.get(`${get().base}/api/user/logout-user`, { withCredentials: true });
+      
+      // Remove token cookie upon logout
+      document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Strict";
+
       set({ user: null, error: null });  // Clear user and error on logout
     } catch (error) {
       console.error("Error logging out:", error);

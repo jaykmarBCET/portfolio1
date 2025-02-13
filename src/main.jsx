@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
     <Toaster/>
     <App/>
 
-    <CookieConsent  style={{background:"blue"}}  >Please set permission for cookies </CookieConsent>
+    <CookieConsent debug  style={{background:"blue"}}  >Please set permission for cookies </CookieConsent>
     </>
   </StrictMode>,
 )
