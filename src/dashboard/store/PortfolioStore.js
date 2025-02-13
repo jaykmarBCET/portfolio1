@@ -2,9 +2,12 @@ import { create } from 'zustand';
 import axios from 'axios';
 import {toast} from 'react-hot-toast'
 
+
+
 const instanceAxios = axios.create({
-    baseURL: "https://fr33hg-3000.csb.app/api",
-    withCredentials: true
+    baseURL: "https://qw83ym-3000.csb.app/api",
+    withCredentials: true,
+    
 });
 
 const usePortFolioStore = create((set, get) => ({
@@ -12,10 +15,12 @@ const usePortFolioStore = create((set, get) => ({
     backend: [],
     frontend: [],
     programing: [],
+   
     projects: [],
     getSkills: async () => {
         try {
             const response = await instanceAxios.get("/improve/skills/skills");
+        
             if (!response.data) {
                 console.log("Something went wrong while fetching skills");
                 return;
