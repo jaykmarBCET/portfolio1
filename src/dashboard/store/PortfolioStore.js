@@ -1,26 +1,41 @@
 import { create } from 'zustand';
 import axios from 'axios';
-import {toast} from 'react-hot-toast'
-
-
+import { toast } from 'react-hot-toast';
+import Cookies from 'js-cookie';
+import { BACKEND_URL } from '../../connections/Backend';
 
 const instanceAxios = axios.create({
-    baseURL: "https://qw83ym-3000.csb.app/api",
+    baseURL: `${BACKEND_URL}/api`,
     withCredentials: true,
-    
 });
+
+// Helper function to get JWT from cookies
+const getJwtToken = () => {
+    return Cookies.get('jwt');
+};
 
 const usePortFolioStore = create((set, get) => ({
     skills: [],
     backend: [],
     frontend: [],
     programing: [],
-   
     projects: [],
+    
+    // Helper function to handle the Authorization header with JWT token
+    getAuthHeaders: () => {
+        const token = getJwtToken();
+        if (token) {
+            return { Authorization: `Bearer ${token}` };
+        }
+        return {}; // Return empty headers if no token exists
+    },
+
+    // Get skills
     getSkills: async () => {
         try {
-            const response = await instanceAxios.get("/improve/skills/skills");
-        
+            const response = await instanceAxios.get("/improve/skills/skills", {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data) {
                 console.log("Something went wrong while fetching skills");
                 return;
@@ -30,9 +45,13 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
+
+    // Get backend
     getBackends: async () => {
         try {
-            const response = await instanceAxios.get("/improve/backend/backend");
+            const response = await instanceAxios.get("/improve/backend/backend", {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while fetching backend data");
                 return;
@@ -42,9 +61,13 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
+
+    // Get frontend
     getFrontend: async () => {
         try {
-            const response = await instanceAxios.get("/improve/frontend/frontend");
+            const response = await instanceAxios.get("/improve/frontend/frontend", {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while fetching frontend data");
                 return;
@@ -54,9 +77,13 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
+
+    // Get projects
     getProject: async () => {
         try {
-            const response = await instanceAxios.get("/improve/project/project");
+            const response = await instanceAxios.get("/improve/project/project", {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while fetching project data");
                 return;
@@ -66,9 +93,13 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
+
+    // Get programming
     getPrograming: async () => {
         try {
-            const response = await instanceAxios.get("/improve/programing/programing");
+            const response = await instanceAxios.get("/improve/programing/programing", {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while fetching programming data");
                 return;
@@ -78,124 +109,142 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
-    getFeedBack: async () => {
-        try {
-            const response = await instanceAxios.get("/feedback");
-            if (!response.data.data) {
-                console.log("Something went wrong while fetching feedback data");
-                return;
-            }
-            set({ feedbacks: response.data.data });
-        } catch (error) {
-            console.log(error);
-        }
-    },
+
+    // Add skills
     addSkills: async (data) => {
-        console.log(data);
         try {
-            const response = await instanceAxios.post("/improve/skills/skills",data);
+            const response = await instanceAxios.post("/improve/skills/skills", data, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while adding skills");
                 return;
             }
-
             const skills = get().skills;
             set({ skills: [...skills, response.data.data] });
-            toast.success("Skills added")
+            toast.success("Skills added");
         } catch (error) {
-            toast.error(" project add failed")
+            toast.error("Skills add failed");
             console.log(error);
         }
     },
-    addBackend: async ({technology, description, image}) => {
+
+    // Add backend
+    addBackend: async ({ technology, description, image }) => {
         try {
-            const response = await instanceAxios.post("/improve/backend/backend", { technology, description, image });
+            const response = await instanceAxios.post("/improve/backend/backend", { technology, description, image }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while adding backend data");
                 return;
             }
             const backend = get().backend;
             set({ backend: [...backend, response.data.data] });
-            toast.success("Backend added")
+            toast.success("Backend added");
         } catch (error) {
-            toast.error("backend add failed")
+            toast.error("Backend add failed");
             console.log(error);
         }
     },
+
+    // Add project
     addProject: async ({ technology, description, image, start, end, link }) => {
         try {
-            const response = await instanceAxios.post("/improve/project/project", { technology, description, image, start, end, link });
+            const response = await instanceAxios.post("/improve/project/project", { technology, description, image, start, end, link }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while adding project data");
                 return;
             }
             const project = get().projects;
             set({ projects: [...project, response.data.data] });
-            toast.success("project added")
+            toast.success("Project added");
         } catch (error) {
-            toast.error("project add failed")
+            toast.error("Project add failed");
             console.log(error);
         }
     },
-    addPrograming: async ({language, start, end}) => {
+
+    // Add programming
+    addPrograming: async ({ language, start, end }) => {
         try {
-            const response = await instanceAxios.post("/improve/programing/programing", { language, start, end });
+            const response = await instanceAxios.post("/improve/programing/programing", { language, start, end }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while adding programming data");
                 return;
             }
             const programing = get().programing;
             set({ programing: [...programing, response.data.data] });
-            toast.success("Programinig added")
+            toast.success("Programming added");
         } catch (error) {
-            toast.error("programing add failed")
+            toast.error("Programming add failed");
             console.log(error);
         }
     },
-    addFrontend: async ({technology, description, image}) => {
+
+    // Add frontend
+    addFrontend: async ({ technology, description, image }) => {
         try {
-            const response = await instanceAxios.post("/improve/frontend/frontend", { technology, description, image });
+            const response = await instanceAxios.post("/improve/frontend/frontend", { technology, description, image }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) {
                 console.log("Something went wrong while adding frontend data");
                 return;
             }
             const frontend = get().frontend;
             set({ frontend: [...frontend, response.data.data] });
-            toast.success("Fronted added")
+            toast.success("Frontend added");
         } catch (error) {
-            toast.error("frontend add failed")
+            toast.error("Frontend add failed");
             console.log(error);
         }
     },
+
+    // Update project
     updateProject: async ({ id, technology, description, start, end, link }) => {
         try {
-            const response = await instanceAxios.patch("/improve/project/project", { id, description, technology, start, end, link });
+            const response = await instanceAxios.patch("/improve/project/project", { id, description, technology, start, end, link }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let project = get().projects;
             project = project.filter((item) => response.data.data._id !== item._id);
             set({ projects: [...project, response.data.data] });
-            toast.success("project updated successfully")
+            toast.success("Project updated successfully");
         } catch (error) {
-            toast.error("project update failed")
+            toast.error("Project update failed");
             console.log(error);
         }
     },
-    updateSkills: async ({id, title, description}) => {
+
+    // Update skills
+    updateSkills: async ({ id, title, description }) => {
         try {
-            const response = await instanceAxios.patch("/improve/skills/skills", { id, title, description });
+            const response = await instanceAxios.patch("/improve/skills/skills", { id, title, description }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let skills = get().skills;
             skills = skills.filter((item) => item._id !== response.data.data._id);
             set({ skills: [...skills, response.data.data] });
-            toast.success("Skill updated successfully")
+            toast.success("Skill updated successfully");
         } catch (error) {
-            toast.error("Skill update failed")
+            toast.error("Skill update failed");
             console.log(error);
         }
     },
-    updateBackend: async ({id, technology, description, image}) => {
+
+    // Update backend
+    updateBackend: async ({ id, technology, description, image }) => {
         try {
-            const response = await instanceAxios.patch("/improve/backend/backend", { id, technology, description, image });
+            const response = await instanceAxios.patch("/improve/backend/backend", { id, technology, description, image }, {
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let backend = get().backend;
             backend = backend.filter((item) => item._id !== response.data.data._id);
@@ -204,95 +253,129 @@ const usePortFolioStore = create((set, get) => ({
             console.log(error);
         }
     },
-    updateFronted: async ({id, technology, description, image}) => {
+
+    // Update frontend
+    updateFronted: async ({ id, technology, description, image }) => {
         try {
-            const response = await instanceAxios.patch("/improve/frontend/frontend", { technology, description, image },{params:{id}});
+            const response = await instanceAxios.patch("/improve/frontend/frontend", { technology, description, image }, {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let frontend = get().frontend;
             frontend = frontend.filter((item) => item._id !== response.data.data._id);
             set({ frontend: [...frontend, response.data.data] });
-            toast.success("Fronted update successfully")
+            toast.success("Frontend updated successfully");
         } catch (error) {
-            toast.error("fronted update failed")
+            toast.error("Frontend update failed");
             console.log(error);
         }
     },
-    updatePrograming: async ({id, language, start, end}) => {
-        console.log(id,language,start,end);
+
+    // Update programming
+    updatePrograming: async ({ id, language, start, end }) => {
         try {
-            const response = await instanceAxios.patch("/improve/programing/programing", { language, start, end },{params:{id}});
+            const response = await instanceAxios.patch("/improve/programing/programing", { language, start, end }, {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let programing = get().programing;
             programing = programing.filter((item) => item._id !== response.data.data._id);
             set({ programing: [...programing, response.data.data] });
-            toast.success("Programing updated successfully")
+            toast.success("Programming updated successfully");
         } catch (error) {
-            toast.error("Programing updated failed")
+            toast.error("Programming update failed");
             console.log(error);
         }
     },
+
+    // Delete skills
     deleteSkills: async (id) => {
         try {
-            const response = await instanceAxios.delete("/improve/skills/skills", { params: { id } });
+            const response = await instanceAxios.delete("/improve/skills/skills", {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let skills = get().skills;
             skills = skills.filter((item) => item._id !== response.data.data._id);
             set({ skills: skills });
-            toast.success("SKill deleted successfully")
+            toast.success("Skill deleted successfully");
         } catch (error) {
-            toast.error("Skill deleted failed")
+            toast.error("Skill delete failed");
             console.log(error);
         }
     },
+
+    // Delete project
     deleteProject: async (id) => {
         try {
-            const response = await instanceAxios.delete("/improve/project/project", { params: { id } });
+            const response = await instanceAxios.delete("/improve/project/project", {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let project = get().projects;
             project = project.filter((item) => item._id !== response.data.data._id);
             set({ projects: project });
-            toast.success("project deleted successfully")
+            toast.success("Project deleted successfully");
         } catch (error) {
-            toast.error("project deleted failed")
+            toast.error("Project delete failed");
             console.log(error);
         }
     },
+
+    // Delete programming
     deletePrograming: async (id) => {
         try {
-            const response = await instanceAxios.delete("/improve/programing/programing", { params: { id } });
+            const response = await instanceAxios.delete("/improve/programing/programing", {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let programing = get().programing;
             programing = programing.filter((item) => item._id !== response.data.data._id);
             set({ programing: programing });
-            toast.success("Programing deleted successfully")
+            toast.success("Programming deleted successfully");
         } catch (error) {
-            toast.error("Programing deleted failed")
+            toast.error("Programming delete failed");
             console.log(error);
         }
     },
+
+    // Delete frontend
     deleteFronted: async (id) => {
         try {
-            const response = await instanceAxios.delete("/improve/frontend/frontend", { params: { id } });
+            const response = await instanceAxios.delete("/improve/frontend/frontend", {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let frontend = get().frontend;
             frontend = frontend.filter((item) => item._id !== response.data.data._id);
             set({ frontend: frontend });
-            toast.success("Fronted delete successfully")
+            toast.success("Frontend deleted successfully");
         } catch (error) {
-            toast.error("fronted deleted failed")
+            toast.error("Frontend delete failed");
             console.log(error);
         }
     },
+
+    // Delete backend
     deleteBackend: async (id) => {
         try {
-            const response = await instanceAxios.delete("/improve/backend/backend", { params: { id } });
+            const response = await instanceAxios.delete("/improve/backend/backend", {
+                params: { id },
+                headers: get().getAuthHeaders()
+            });
             if (!response.data.data) return;
             let backend = get().backend;
             backend = backend.filter((item) => item._id !== response.data.data._id);
             set({ backend: backend });
-            toast.success("Backend deleted successfully")
+            toast.success("Backend deleted successfully");
         } catch (error) {
-            toast.error("backend deleted failed")
+            toast.error("Backend delete failed");
             console.log(error);
         }
     },

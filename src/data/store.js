@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 import axios from 'axios';
+import { BACKEND_URL } from '../connections/Backend';
 
 const instanceAxios = axios.create({
-  baseURL: "https://qw83ym-3000.csb.app/api/grab"
+  baseURL: `${BACKEND_URL}/api/grab`
 });
 
 const useStore = create((set) => ({
