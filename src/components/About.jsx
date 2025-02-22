@@ -18,7 +18,7 @@ const About = () => {
       <div className="container mx-auto max-w-md grid md:grid-cols-2 items-center justify-center md:justify-between">
         <div className="about-info mx-5">
           <h2 className="text-4xl font-bold mb-5 border-b-[5px] w-[180px] border-indigo-600 pb-2">About Me</h2>
-          <p className="pb-5">Hi, My Name Is Jay Kumar everyone calls me Jay. I am a Full Stack Web Developer with a passion for creating innovative and user-friendly web applications.</p>
+          <p className="pb-5">Hi, My Name Is Jay Kumar everyone calls me Jay. I am a Full Stack Web & Android Developer with a passion for creating innovative and user-friendly web applications.</p>
 
           <p className="pb-5">I am proficient in Web developer like Backand.</p>
           <p>In my spare time I Enjoy  playing Cricket and watching movies.</p>

@@ -18,16 +18,16 @@ function Footer({id}) {
         <ul>
           <li>
             <a href="mailto:jaykumar2dear@gmail.com" className="text-blue-500 hover:text-blue-700">
-              your-email@example.com
+              email
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/your-linkedin-profile/" className="text-blue-500 hover:text-blue-700">
+            <a href="https://www.linkedin.com/in/jay-kumar-96b751298" className="text-blue-500 hover:text-blue-700">
               LinkedIn
             </a>
           </li>
           <li>
-            <a href="https://github.com/your-github-profile" className="text-blue-500 hover:text-blue-700">
+            <a href="https://github.com/jaykumar591" className="text-blue-500 hover:text-blue-700">
               GitHub
             </a>
           </li>
@@ -41,16 +41,7 @@ function Footer({id}) {
               Facebook
             </a>
           </li>
-          <li>
-            <a href="https://twitter.com/your-twitter-profile" className="text-blue-500 hover:text-blue-700">
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/your-instagram-profile/" className="text-blue-500 hover:text-blue-700">
-              Instagram
-            </a>
-          </li>
+          
         </ul>
       </div>
     </div>
