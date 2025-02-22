@@ -12,7 +12,7 @@ const data = [
         title: "Python",
         description: "I have a foundational understanding of Python, covering essential concepts such as data types, control structures, functions, and file handling. This knowledge allows me to write simple scripts and automate basic tasks efficiently.",
         image: image.python,
-        level: "15"
+        level: "25"
     },
     {
         title: "JavaScript",
@@ -24,7 +24,7 @@ const data = [
         title: "C++",
         description: "C++ was my first programming language, where I built a login system to enhance my problem-solving skills. This experience helped me understand core programming concepts and improve my logical thinking for tackling coding challenges.",
         image: image.cpp,
-        level: "40"
+        level: "45"
     }
 ];
 
