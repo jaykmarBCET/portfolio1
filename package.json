@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.113.0",
     "@react-three/fiber": "^8.17.8",
     "axios": "^1.7.9",
+    "font-awesome": "^4.7.0",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "portfolio": "file:",

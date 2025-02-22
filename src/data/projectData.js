@@ -8,7 +8,7 @@ const projects = [
     title: 'Movie Search App',
     description: 'Zustand, tailwindcss, react js , gsap,movie search API',
     image: [home],
-    link: 'https://moviesearchbyjay.vercel.app/'
+    link: 'https://movie-search-xi-nine.vercel.app/video'
   },
   {
     title: 'Login App',

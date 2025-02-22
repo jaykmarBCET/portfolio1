@@ -228,7 +228,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className='bg-black relative'>
-      <FeedBack />
+      <a href="mailto:jaykumar2dear@gmail.com"><FeedBack /></a>
       <RouterProvider router={router} />
     </div>
   );

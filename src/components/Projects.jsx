@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { cardAnimation } from "../animation/HomeAnime";
 import projects from '../data/projectData';
 
+
 function Projects() {
   const [toggle, setToggle] = useState({});
 
@@ -28,7 +29,7 @@ function Projects() {
               <p className="text-sm font-sans font-medium mb-4 p-4 bg-gray-700 bg-opacity-60 rounded-lg text-gray-300 shadow-md">
                 {project.description}
               </p>
-              
+
               <div className="flex gap-2 overflow-x-hidden overflow-y-hidden">
                 {project.image.map((item, imgIndex) => (
                   <img
@@ -45,23 +46,27 @@ function Projects() {
                         [`${index}-${imgIndex}`]: false
                       }))
                     }
-                    className={`h-28 w-40 rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300 ${
-                      toggle[`${index}-${imgIndex}`] ? "animate-pulse" : ""
-                    }`}
+                    className={`h-28 w-40 rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300 ${toggle[`${index}-${imgIndex}`] ? "animate-pulse" : ""
+                      }`}
                     src={item}
                     alt={`Project ${index} - Image ${imgIndex}`}
                   />
                 ))}
               </div>
             </div>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-            >
-              View Project
-            </a>
+            <div className="flex justify-center space-x-4">
+              <a
+                href={project.link}
+                download={true}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+              >
+                View
+              </a>
+              <a className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300" href="/github.com/users/jaykmar591">Code</a>
+
+            </div>
           </div>
         ))}
       </div>
@@ -81,7 +86,7 @@ function Projects() {
               <p className="text-sm font-sans font-medium mb-4 p-4 bg-gray-700 bg-opacity-60 rounded-lg text-gray-300 shadow-md">
                 {project.description}
               </p>
-              
+
               <div className="flex gap-2 overflow-x-hidden overflow-y-hidden">
                 {project.image.map((item, imgIndex) => (
                   <img
@@ -98,23 +103,27 @@ function Projects() {
                         [`${index}-${imgIndex}`]: false
                       }))
                     }
-                    className={`h-28 w-40 rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300 ${
-                      toggle[`${index}-${imgIndex}`] ? "animate-pulse" : ""
-                    }`}
+                    className={`h-28 w-40 rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300 ${toggle[`${index}-${imgIndex}`] ? "animate-pulse" : ""
+                      }`}
                     src={item}
                     alt={`Project ${index} - Image ${imgIndex}`}
                   />
                 ))}
               </div>
             </div>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-            >
-              View Project
-            </a>
+            <div className="flex justify-center space-x-4">
+              <a
+                href={project.link}
+                download={true}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+              >
+                download
+              </a>
+              <a className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300" href="/github.com/users/jaykmar591">CODE</a>
+
+            </div>
           </div>
         ))}
       </div>
