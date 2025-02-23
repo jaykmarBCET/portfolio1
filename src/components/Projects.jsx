@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { cardAnimation } from "../animation/HomeAnime";
 import projects from '../data/projectData';
-
+import androidProject from "../data/androidProject";
+import ImageShow from '../imageShow/ImageShow'
 
 function Projects() {
   const [toggle, setToggle] = useState({});
+  const [flag,setFlag] = useState(false)
 
   useGSAP(() => {
     cardAnimation();
@@ -54,6 +56,7 @@ function Projects() {
                 ))}
               </div>
             </div>
+            
             <div className="flex justify-center space-x-4">
               <a
                 href={project.link}
@@ -74,7 +77,7 @@ function Projects() {
         Projects (ANDROID)
       </h1>
       <div className="flex flex-wrap gap-8 justify-center px-4 mt-10">
-        {projects.map((project, index) => (
+        {androidProject.map((project, index) => (
           <div
             key={index}
             className="card bg-white bg-opacity-10 border border-gray-600 rounded-lg shadow-lg p-6 max-w-sm hover:shadow-2xl transition-shadow duration-300"
@@ -111,6 +114,7 @@ function Projects() {
                 ))}
               </div>
             </div>
+            <button onClick={()=>setFlag(true)}>Show Image</button>
             <div className="flex justify-center space-x-4">
               <a
                 href={project.link}
@@ -118,12 +122,15 @@ function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-              >
+                >
                 download
               </a>
               <a className="block w-40 text-center mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300" href="/github.com/users/jaykmar591">CODE</a>
 
             </div>
+                {
+                  flag&&<ImageShow image={project.image} SetFlag={setFlag} />
+                }
           </div>
         ))}
       </div>
