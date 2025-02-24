@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { cardAnimation } from "../animation/HomeAnime";
 import projects from '../data/projectData';
