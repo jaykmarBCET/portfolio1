@@ -3,6 +3,9 @@ import home from '../assets/movie/home.png'
 import chatDialog from '../assets/chats/img/chatdialog.png'
 import chatHome from '../assets/chats/img/home.png'
 import loginImage from '../assets/login/img/image.png'
+import uploadHomePage from '../assets/uploaddata/dash.png'
+import uploadLoginPage from '../assets/uploaddata/login.png'
+import uploadVideo from '../assets/uploaddata/image.png'
 const projects = [
   {
     title: 'Movie Search App',
@@ -21,7 +24,7 @@ const projects = [
   {
     title: 'Upload Data',
     description: 'cloudinary, next js , mongodb, jwt, bcrypt, tailwindcss, typescript, javascript, shadcn',
-    image: [home],
+    image: [uploadHomePage,uploadLoginPage,uploadVideo],
     link: 'https://uploaddata-eight.vercel.app',
     code:'https://github.com/jaykumar591/uploaddata'
   },

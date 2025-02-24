@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Achievements = () => {
   return (
@@ -8,16 +8,16 @@ const Achievements = () => {
       </h2>
       <ul className="list-disc pl-6 text-gray-600 mt-4 space-y-2">
         <li>
-          <span className="font-semibold text-gray-700">Leet code:</span> Solve more then 150 plus problem on leetcode.
+          <span className="font-semibold text-gray-700">LeetCode:</span> Successfully solved over 150 coding problems, improving problem-solving skills and algorithmic thinking.
         </li>
         <li>
-          <span className="font-semibold text-gray-700">Geeks for Geeks:</span> Solve more then 280 problem in GFG
+          <span className="font-semibold text-gray-700">GeeksforGeeks:</span> Completed more than 280 problems, gaining a deeper understanding of data structures and algorithms.
         </li>
         <li>
-          <span className="font-semibold text-gray-700">Hacker Rank:</span> Solve more then 80 problem in Hacker rank
+          <span className="font-semibold text-gray-700">HackerRank:</span> Solved over 80 problems, demonstrating proficiency in coding and analytical skills.
         </li>
         <li>
-          <span className="font-semibold text-gray-700">SQL Basic :</span> <a href="https://www.hackerrank.com/profile/jaykumar2dear">SQL</a>
+          <span className="font-semibold text-gray-700">SQL Basic Certification:</span> Completed the SQL certification on HackerRank, showcasing strong foundational knowledge in SQL. <a href="https://www.hackerrank.com/profile/jaykumar2dear" className="text-blue-500 hover:underline">View Profile</a>
         </li>
       </ul>
     </div>

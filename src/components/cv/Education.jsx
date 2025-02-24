@@ -13,7 +13,7 @@ const Education = () => {
       duration: "02/2021 - 02/2022",
     },
     {
-      degree:"Matrix",
+      degree:"Matric",
       institution:"High School Dindayalpur , Siwan",
       duration:"02/2019 - 02/2020"
     }
