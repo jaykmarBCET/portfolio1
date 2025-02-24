@@ -21,7 +21,7 @@ import tailwindcss from  './tailwindcss.png'
 import gsap from   './gsap.png'
 import react  from  './react.png'
 import redux from   './redux.png'
-
+import j from './j.png'
 
 
 
@@ -50,7 +50,8 @@ const image = {
     tailwindcss,
     gsap,
     react,
-    redux
+    redux,
+    j
 
 }
 

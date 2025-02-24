@@ -7,7 +7,7 @@ const Summary = () => {
         Summary
       </h2>
       <p className="text-gray-700 mt-4 leading-relaxed">
-        I am a passionate Web Developer with expertise in both frontend and backend technologies. My first project was a movie search app, followed by a green chat application featuring real-time communication. I am dedicated to building dynamic and interactive web experiences.
+      I am a versatile developer with expertise in Java, JavaScript, frontend, backend, and Android development. I have experience building web and mobile applications, handling both client-side and server-side development. My skills enable me to create efficient, scalable, and user-friendly applications across multiple platforms
       </p>
     </div>
   );

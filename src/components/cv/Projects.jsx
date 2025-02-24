@@ -1,18 +1,8 @@
 import React from 'react';
-
+import ProjectAnroid from '../../data/androidProject'
+import projectData from '../../data/projectData'
 const Projects = () => {
-  const projectData = [
-    {
-      title: "Open Source Database Contribution",
-      description:
-        "Contributed to improving open-source database efficiency, enhancing transaction speeds by 30%.",
-    },
-    {
-      title: "Cloud Service Monitoring Tool",
-      description:
-        "Developed a monitoring tool for cloud services to minimize incident response times.",
-    },
-  ];
+  
 
   return (
     <div className="p-8 w-full mx-auto bg-white rounded-lg shadow-md">
@@ -27,6 +17,7 @@ const Projects = () => {
           >
             <h3 className="text-2xl font-semibold text-gray-700">{project.title}</h3>
             <p className="text-gray-600 mt-2">{project.description}</p>
+            <a href={project.link}>Link</a>
           </div>
         ))}
       </div>
