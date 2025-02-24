@@ -19,6 +19,9 @@ const Achievements = () => {
         <li>
           <span className="font-semibold text-gray-700">SQL Basic Certification:</span> Completed the SQL certification on HackerRank, showcasing strong foundational knowledge in SQL. <a href="https://www.hackerrank.com/profile/jaykumar2dear" className="text-blue-500 hover:underline">View Profile</a>
         </li>
+        <li>
+          <span className="font-semibold text-gray-700">Java Basic Certification:</span> Completed the Java certification on HackerRank, showcasing strong foundational knowledge in Java. <a href="https://www.hackerrank.com/profile/jaykumar2dear" className="text-blue-500 hover:underline">View Profile</a>
+        </li>
       </ul>
     </div>
   );
