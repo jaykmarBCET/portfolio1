@@ -7,7 +7,8 @@ const androidProject = [
         title: 'Whatsapp clone',
         description: 'expo , core css,react native',
         image: [home, recent, status],
-        link: 'https://movie-search-xi-nine.vercel.app'
+        code:'https://github.com/jaykmarBCET/whatsappclon',
+        source:'https://github.com/jaykmarBCET/whatsappclon/raw/refs/heads/main/whatsappClone.apk'
     }
 ]
 
