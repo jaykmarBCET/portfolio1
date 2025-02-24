@@ -22,7 +22,7 @@ const projects = [
     title: 'Upload Data',
     description: 'cloudinary, next js , mongodb, jwt, bcrypt, tailwindcss, typescript, javascript, shadcn',
     image: [home],
-    link: 'https://uploaddata.vercel.app/login',
+    link: 'https://uploaddata-eight.vercel.app',
     code:'https://github.com/jaykumar591/uploaddata'
   },
   {
